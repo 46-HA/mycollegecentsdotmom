@@ -7,7 +7,6 @@ const COLORS = {
   border: "#1E2D45",
   borderHover: "#2A4060",
   blue: "#3B82F6",
-  blueGlow: "rgba(59,130,246,0.15)",
   textPrimary: "#F1F5F9",
   textSecondary: "#94A3B8",
   textMuted: "#475569",
@@ -125,11 +124,11 @@ function IconOpportunities() {
 }
 
 const FEATURES = [
-  { Icon: IconMentorship, title: "Mentorship", desc: "Get matched with college students and recent grads who've walked your path. Real talk, no scripts." },
-  { Icon: IconTestPrep, title: "Test Prep", desc: "SAT, ACT, and AP resources built for students who can't afford $200/hr tutors." },
-  { Icon: IconStudyRooms, title: "Study Rooms", desc: "Virtual spaces to stay accountable, find focus, and grind alongside people who get it." },
-  { Icon: IconGuides, title: "Guides Library", desc: "FAFSA, essays, applications — step-by-step guides on everything they forgot to teach you." },
-  { Icon: IconOpportunities, title: "Opportunities", desc: "Scholarships, internships, and programs curated for first-gen and low-income students." },
+  { Icon: IconMentorship, title: "Mentorship", desc: "Get matched with college students and recent graduated who've been in your shoes." },
+  { Icon: IconTestPrep, title: "Test Prep", desc: "SAT, ACT, and AP resources that are completely free for any student." },
+  { Icon: IconStudyRooms, title: "Study Rooms", desc: "Spaces to stay accountable, find focus, and lock-in with others just like you." },
+  { Icon: IconGuides, title: "Guides Library", desc: "Read about FAFSA, essays, applications.." },
+  { Icon: IconOpportunities, title: "Opportunities", desc: "Scholarships, internships, and programs curated for you." },
 ];
 
 function FadeIn({ children, delay = 0, style = {} }) {
@@ -208,7 +207,7 @@ function Nav() {
           }}
             onMouseEnter={e => e.target.style.opacity = "0.85"}
             onMouseLeave={e => e.target.style.opacity = "1"}
-          >Get started</a>
+          >Join waitlist</a>
         </div>
       </div>
     </nav>
@@ -219,16 +218,6 @@ function Hero() {
   return (
     <section style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", padding: "120px 2rem 80px", position: "relative", zIndex: 1 }}>
       <div style={{ maxWidth: 680 }}>
-        <div style={{
-          display: "inline-block", border: `1px solid ${COLORS.border}`,
-          borderRadius: 100, padding: "5px 16px", marginBottom: 32,
-          fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 500,
-          color: COLORS.textMuted, letterSpacing: "0.08em", textTransform: "uppercase",
-          animation: "hFadeDown 0.6s ease both",
-        }}>
-          Free for every student
-        </div>
-
         <h1 style={{
           fontFamily: "'Fraunces', serif",
           fontSize: "clamp(3.2rem, 7vw, 5.8rem)",
@@ -247,11 +236,28 @@ function Hero() {
           fontFamily: "'DM Sans', sans-serif",
           fontSize: "clamp(1rem, 2vw, 1.15rem)",
           color: COLORS.textSecondary,
-          maxWidth: 500, margin: "0 auto 44px",
+          maxWidth: 500, margin: "0 auto 12px",
           lineHeight: 1.75,
           animation: "hFadeUp 0.65s ease 0.2s both",
         }}>
-          Mentorship, test prep, study rooms, guides, and opportunities — all free. Built by students who had to figure it out alone.
+          Helping FGLI students get into college.
+        </p>
+
+        <p style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: "clamp(0.85rem, 1.5vw, 0.95rem)",
+          color: COLORS.textMuted,
+          maxWidth: 480, margin: "0 auto 44px",
+          lineHeight: 1.7,
+          animation: "hFadeUp 0.65s ease 0.25s both",
+        }}>
+          Built for students, by a{" "}
+          {/* Replace href with your personal page URL */}
+          <a href="#" style={{ color: COLORS.blue, textDecoration: "none", borderBottom: `1px solid rgba(59,130,246,0.4)` }}
+            onMouseEnter={e => e.currentTarget.style.borderBottomColor = COLORS.blue}
+            onMouseLeave={e => e.currentTarget.style.borderBottomColor = "rgba(59,130,246,0.4)"}
+          >student</a>
+          . Free, open-source, and open to everyone — forever.
         </p>
 
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap", animation: "hFadeUp 0.65s ease 0.3s both" }}>
@@ -263,7 +269,7 @@ function Hero() {
             onMouseEnter={e => { e.currentTarget.style.opacity = "0.88"; e.currentTarget.style.transform = "translateY(-1px)"; }}
             onMouseLeave={e => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "translateY(0)"; }}
           >
-            Get started
+            Join the waitlist
           </a>
           <a href="#features" style={{
             fontFamily: "'DM Sans', sans-serif", fontWeight: 500, fontSize: 15,
@@ -285,7 +291,6 @@ function Hero() {
         html { scroll-behavior: smooth; background: ${COLORS.bg}; }
         body { background: ${COLORS.bg}; }
         @keyframes hFadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
-        @keyframes hFadeDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }
       `}</style>
     </section>
   );
@@ -296,14 +301,11 @@ function Features() {
     <section id="features" style={{ padding: "100px 2rem", position: "relative", zIndex: 1 }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <FadeIn>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, fontWeight: 600, color: COLORS.blue, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 14 }}>
-            What we offer
-          </p>
           <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 900, color: COLORS.textPrimary, marginBottom: 14, letterSpacing: "-1px", lineHeight: 1.08 }}>
-            Everything you need.<br />Nothing you have to pay for.
+            Everything you might need.<br />
           </h2>
           <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 16, color: COLORS.textSecondary, maxWidth: 440, lineHeight: 1.7, marginBottom: 60 }}>
-            We built the toolkit we wish someone had handed us.
+            Nothing you have to pay for.
           </p>
         </FadeIn>
 
@@ -335,47 +337,24 @@ function Features() {
 function About() {
   return (
     <section id="about" style={{ padding: "100px 2rem", position: "relative", zIndex: 1 }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+      <div style={{ maxWidth: 640, margin: "0 auto" }}>
         <FadeIn>
-          <div style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}`, borderRadius: 24, padding: "48px 40px", position: "relative", overflow: "hidden" }}>
-            <div style={{ position: "absolute", top: -60, right: -60, width: 200, height: 200, background: COLORS.blueGlow, borderRadius: "50%", filter: "blur(40px)", pointerEvents: "none" }} />
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, fontWeight: 600, color: COLORS.blue, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 20 }}>
-              Our mission
-            </p>
-            <p style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(1.3rem, 2.2vw, 1.8rem)", fontWeight: 700, color: COLORS.textPrimary, lineHeight: 1.45, marginBottom: 32 }}>
-              "Built by students who had to figure it out alone. Now you don't have to."
-            </p>
-            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-              <OtterMark />
-              <div>
-                <p style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: 13, color: COLORS.textPrimary }}>The MCC Team</p>
-                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: COLORS.textMuted }}>First-gen students, for first-gen students</p>
-              </div>
-            </div>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={0.12}>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, fontWeight: 600, color: COLORS.blue, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 14 }}>
-            Who we are
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, fontWeight: 600, color: COLORS.blue, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 20 }}>
+            Why we exist
           </p>
-          <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(2rem, 3.5vw, 2.8rem)", fontWeight: 900, color: COLORS.textPrimary, marginBottom: 20, letterSpacing: "-1px", lineHeight: 1.08 }}>
-            Built by students.<br />For students.
+          <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(2rem, 3.5vw, 2.8rem)", fontWeight: 900, color: COLORS.textPrimary, marginBottom: 28, letterSpacing: "-1px", lineHeight: 1.08 }}>
+            Built for students.<br />by students.
           </h2>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, color: COLORS.textSecondary, lineHeight: 1.75, marginBottom: 16 }}>
-            Too many first-gen and low-income students enter the college process without a roadmap. The resources that exist are scattered, expensive, or locked behind paywalls.
-          </p>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, color: COLORS.textSecondary, lineHeight: 1.75, marginBottom: 36 }}>
-            We built MyCollegeCents to change that. Free mentorship, real guides, and a community that actually shows up — because everyone deserves a fair shot.
-          </p>
-          <div style={{ display: "flex", gap: 36 }}>
-            {[["100%", "Free, always"], ["5", "Core tools"], ["0", "Hidden fees"]].map(([num, label]) => (
-              <div key={label}>
-                <p style={{ fontFamily: "'Fraunces', serif", fontWeight: 900, fontSize: 30, color: COLORS.blue, lineHeight: 1 }}>{num}</p>
-                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: COLORS.textMuted, marginTop: 5 }}>{label}</p>
-              </div>
-            ))}
-          </div>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 16, color: COLORS.textSecondary, lineHeight: 1.85, marginBottom: 20 }}>
+
+
+
+
+
+
+Although I'm still a high school freshman, I realized applying to other high schools was harder than I thought it would be. I felt so lost. In my family, the only other person who had gone to college was my sister; even then, I didn’t know anything about CollegeBoard, how to write an essay, or where to even begin. I made numerous poor financial decisions and allocated my time on things that only pushed me further from my goals.  Having my sister by my side helped me cross the finish line and press the "Submit" button. I wish to pass that same spirit and advice on to someone else, even if it’s just one person I help.          </p>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 16, color: COLORS.textSecondary, lineHeight: 1.85 }}>
+   FGLI students are usually underrepresented, underfunded, and excluded from resources. MyCollegeCents aims to help close the gap by providing free tools, mentorship, and a welcoming community for all students.          </p>
         </FadeIn>
       </div>
     </section>
@@ -384,52 +363,32 @@ function About() {
 
 function CTA() {
   return (
-    <section id="cta" style={{ padding: "120px 2rem", position: "relative", zIndex: 1, textAlign: "center" }}>
+    <section id="cta" style={{ padding: "120px 2rem", position: "relative", zIndex: 1 }}>
       <FadeIn>
         <div style={{ maxWidth: 560, margin: "0 auto" }}>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, fontWeight: 600, color: COLORS.blue, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 16 }}>
-            Ready?
-          </p>
-          <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(2.2rem, 5vw, 3.5rem)", fontWeight: 900, color: COLORS.textPrimary, marginBottom: 20, letterSpacing: "-1.5px", lineHeight: 1.06 }}>
-            Your seat at the table<br />is waiting.
+          <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(2.2rem, 5vw, 3.5rem)", fontWeight: 900, color: COLORS.textPrimary, marginBottom: 16, letterSpacing: "-1.5px", lineHeight: 1.06 }}>
+            We're still working on it. (Psst: it's just one student working on it)
           </h2>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, color: COLORS.textSecondary, lineHeight: 1.75, marginBottom: 44 }}>
-            Join students who are done figuring it out alone. It's free, built for you, and almost here.
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 16, color: COLORS.textSecondary, lineHeight: 1.75, marginBottom: 36 }}>
+            Join the waitlist and we'll let you know when we're ready. Feel free to reach out to me at Hussein@MyCollegeCents.com
           </p>
-
-          <div style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}`, borderRadius: 20, padding: "44px 36px", position: "relative", overflow: "hidden" }}>
-            <div style={{ position: "absolute", top: -80, left: "50%", transform: "translateX(-50%)", width: 300, height: 200, background: COLORS.blueGlow, borderRadius: "50%", filter: "blur(50px)", pointerEvents: "none" }} />
-            <svg width="40" height="40" viewBox="0 0 44 44" fill="none" style={{ marginBottom: 20 }}>
-              <rect x="6" y="20" width="32" height="18" rx="3" stroke="#3B82F6" strokeWidth="1.5" />
-              <path d="M14 20V14a8 8 0 0116 0v6" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" />
-              <circle cx="22" cy="29" r="2.5" fill="#3B82F6" />
-              <line x1="22" y1="31.5" x2="22" y2="34" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
-            <h3 style={{ fontFamily: "'Fraunces', serif", fontWeight: 700, fontSize: 20, color: COLORS.textPrimary, marginBottom: 10 }}>
-              We're almost ready.
-            </h3>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: COLORS.textSecondary, lineHeight: 1.7, marginBottom: 28 }}>
-              Sign-up is coming soon. We'll let you know the moment the doors open.
-            </p>
-            <a
-              href="#"
-              onClick={e => e.preventDefault()}
-              style={{
-                display: "inline-block",
-                fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: 15,
-                color: COLORS.bg, background: COLORS.blue,
-                padding: "13px 38px", borderRadius: 100, textDecoration: "none",
-                transition: "opacity 0.2s, transform 0.2s",
-              }}
-              onMouseEnter={e => { e.currentTarget.style.opacity = "0.88"; e.currentTarget.style.transform = "translateY(-1px)"; }}
-              onMouseLeave={e => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "translateY(0)"; }}
-            >
-              Get early access
-            </a>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: COLORS.textMuted, marginTop: 16 }}>
-              No spam. Just a heads-up when we launch.
-            </p>
-          </div>
+          {/* Replace href with your Fillout form URL */}
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-block",
+              fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: 15,
+              color: COLORS.bg, background: COLORS.blue,
+              padding: "13px 38px", borderRadius: 100, textDecoration: "none",
+              transition: "opacity 0.2s, transform 0.2s",
+            }}
+            onMouseEnter={e => { e.currentTarget.style.opacity = "0.88"; e.currentTarget.style.transform = "translateY(-1px)"; }}
+            onMouseLeave={e => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "translateY(0)"; }}
+          >
+            Join the waitlist
+          </a>
         </div>
       </FadeIn>
     </section>
